@@ -1,0 +1,86 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_Stroller_App.Views.ToFPage"
+             BackgroundColor="{StaticResource BackWash}"
+             Title="ToF">
+   
+    <!-- OUTER GRID: HEADER + CONTENT -->
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- GRADIENT HEADER -->
+        <Grid Padding="20,32" Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource Teal600}" Offset="0"/>
+                    <GradientStop Color="{StaticResource Teal700}" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Text="ToF" FontSize="28" FontAttributes="Bold" TextColor="White" />
+        </Grid>
+
+        <!-- SCROLLABLE CONTENT -->
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="16">
+
+                <!-- Card: Distance Sensor -->
+                <Border Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Distance Sensor" Style="{StaticResource CardTitle}" />
+
+                        <!-- Big number -->
+                        <Label x:Name="ToFValue"
+                 Text="-- cm"
+                 FontSize="36"
+                 FontAttributes="Bold"
+                 TextColor="{StaticResource Teal600}"
+                 HorizontalOptions="Center" />
+
+                        <!-- Visual bar -->
+                        <Grid HeightRequest="12" Margin="0,4,0,0" BackgroundColor="#EEF2F7">
+                            <Border x:Name="ToFBar"
+                    HorizontalOptions="Start"
+                    BackgroundColor="{StaticResource Teal600}"
+                    WidthRequest="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="6"/>
+                                </Border.StrokeShape>
+                            </Border>
+                        </Grid>
+
+                        <!-- Range chips -->
+                        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,8,0,0">
+                            <Border x:Name="ChipClose" Padding="14,8" BackgroundColor="#F1F5F9">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="14"/>
+                                </Border.StrokeShape>
+                                <Label Text="Close" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Teal700}" />
+                            </Border>
+                            <Border x:Name="ChipMid" Padding="14,8" BackgroundColor="#F1F5F9">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="14"/>
+                                </Border.StrokeShape>
+                                <Label Text="Medium" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Teal700}" />
+                            </Border>
+                            <Border x:Name="ChipFar" Padding="14,8" BackgroundColor="#F1F5F9">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="14"/>
+                                </Border.StrokeShape>
+                                <Label Text="Far" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Teal700}" />
+                            </Border>
+                        </HorizontalStackLayout>
+
+                        <!-- CARD/CONTAINER -->
+                        <Border Style="{StaticResource CardBorder}">
+                            <VerticalStackLayout>
+                                <Label Text="Notifications and Alerts" Style="{StaticResource CardTitle}" />
+                                <Label Text="Change distance parameters in Settings." TextColor="{StaticResource Muted}" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,96 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_Stroller_App.Views.BrakePage"
+             BackgroundColor="{StaticResource BackWash}"
+             Title="Brake">
+
+    <!-- OUTER GRID: HEADER + CONTENT -->
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- GRADIENT HEADER -->
+        <Grid Padding="20,32" Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource Teal600}" Offset="0"/>
+                    <GradientStop Color="{StaticResource Teal700}" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Text="Brake Control" FontSize="28" FontAttributes="Bold" TextColor="White" />
+        </Grid>
+
+        <!-- SCROLLABLE CONTENT -->
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="16">
+   
+
+                <!-- BRACK LOCK CARD -->
+                <Border Style="{StaticResource CardBorder}">
+                    <!-- INNER CONTAINER -->
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Brake Lock Control" Style="{StaticResource CardTitle}" />
+
+                        <!-- STATUS CARD -->
+                        <Border x:Name="BrakeChip" Padding="10,6" BackgroundColor="#F1F5F9">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14"/>
+                            </Border.StrokeShape>
+                            <!--TEXT-->
+                            <Label x:Name="BrakeStatus" Text="..." FontAttributes="Bold"
+                   TextColor="{StaticResource Ink900}" HorizontalOptions="Center"/>
+                        </Border>
+
+                        <!-- BIG SENSOR-DISPLAY  -->
+                        <Border Padding="18">
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#F0F9FB" Offset="0"/>
+                                    <GradientStop Color="#E6F7F3" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="16"/>
+                            </Border.StrokeShape>
+
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label x:Name="BrakePanelText" Text="LOCKED"
+                     FontSize="32" FontAttributes="Bold"
+                     TextColor="{StaticResource Teal600}" />
+                                <Label Text="Current Status" FontSize="12" TextColor="{StaticResource Muted}"
+                     HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                        <!-- BRAKE LOCK BUTTON -->
+                        <Button x:Name="ToggleBrakeBtn" Text="Toggle Brake"
+                  BackgroundColor="{StaticResource Teal600}" TextColor="White"
+                  CornerRadius="12" Clicked="OnToggleBrakeClicked"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- GRIP SENSOR PANEL -->
+                <Border Style="{StaticResource CardBorder}">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Grip Sensor" Style="{StaticResource CardTitle}"/>
+
+                        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+
+                            <Label Text="Hand Detection:"/>
+                            <Border x:Name="GripChip" Padding="8,4" BackgroundColor="#DCFCE7">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12"/>
+                                </Border.StrokeShape>
+                                <Label x:Name="GripStatus" Text="Detected" TextColor="#0F5132" FontAttributes="Bold"/>
+                            </Border>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

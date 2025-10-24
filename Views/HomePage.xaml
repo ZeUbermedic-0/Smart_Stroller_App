@@ -1,0 +1,139 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_Stroller_App.Views.HomePage"
+             BackgroundColor="{StaticResource BackWash}"
+             Title="Home">
+    <!-- CREATES GRID LAYOUT -->
+    <Grid RowDefinitions="Auto,*"> 
+
+        <!-- NESTED GRID -->
+        <Grid Padding="20,32" Row="0"> 
+            
+            <!-- GRADIENT HEADER  -->
+            <Grid.Background> 
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource Teal600}" Offset="0"/>
+                    <GradientStop Color="{StaticResource Teal700}" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <!-- LAYOUT CONTROL/CONTAINER -->
+            <VerticalStackLayout> 
+                <Label Text="SmartStroller" FontSize="28" TextColor="White" FontAttributes="Bold"/>
+                <Label Text="Connected and Safe" FontSize="14" TextColor="#EEFFFFFF"/>
+            </VerticalStackLayout>
+
+            <!-- RECTANGLE SPACER-->
+            <Border BackgroundColor="{StaticResource BackWash}"
+              HeightRequest="24"
+              VerticalOptions="End"
+              Margin="-24,-12,-24,-32">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24,24,0,0"/>
+                </Border.StrokeShape>
+            </Border>
+        </Grid>
+
+        
+        <!-- Content -->
+        <ScrollView Grid.Row="1" Padding="20">
+            
+            <!-- LAYOUT CONTROL/CONTAINER -->
+            <VerticalStackLayout Spacing="16">
+
+                <!-- CONTAINER/PANEL -->
+                <Border Style="{StaticResource CardBorder}">
+             
+                    <!-- SECTION HEADER "CONTAINER" -->
+                    <VerticalStackLayout>
+                        <Label Text="Stroller Status" Style="{StaticResource CardTitle}" />
+
+                        <!-- CONNECTION DISPLAY -->
+                        <HorizontalStackLayout Spacing="10" Margin="0,8,0,0" VerticalOptions="Center">
+                            <!-- GREEN CIRCLE-->
+                            <Border WidthRequest="12" HeightRequest="12" Background="{StaticResource Teal700}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="6"/>
+                                </Border.StrokeShape>
+                            </Border>
+                            <!-- TEXT NEXT TO CIRCLE-->
+                            <Label Text="Connected to SmartStroller" TextColor="{StaticResource Ink900}"/>
+                        </HorizontalStackLayout>
+
+                        
+                        <!-- GRID CONTAINER -->
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15" Margin="0,12,0,0">
+
+                            <!-- MILES TRAVELED CONTAINER -->
+                            <Border Style="{StaticResource StatTile}" Grid.Row="0" Grid.Column="0">
+                                
+                                <Grid>
+                                
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <!--TEXT INSIDE TOP LEFT BOX -->
+                                    <Label Text="1.2" Grid.Row="0" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Teal600}" HorizontalOptions="Center"/>
+                                    <Label Text="mi traveled" Grid.Row="1" FontSize="12" TextColor="{StaticResource Muted}" HorizontalOptions="Center"/>
+                           
+                                </Grid>
+                            </Border>
+
+                            <!-- BATTERY PERCENT CONTAINER -->
+                            <Border Style="{StaticResource StatTile}" Grid.Row="0" Grid.Column="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label x:Name="BatteryValue" Text="--%" Grid.Row="0" FontSize="24" FontAttributes="Bold"
+                         TextColor="{StaticResource Teal600}" HorizontalOptions="Center"/>
+                                    <Label Text="battery" Grid.Row="1" FontSize="12" TextColor="{StaticResource Muted}"
+                         HorizontalOptions="Center"/>
+                                </Grid>
+                            </Border>
+
+                            <!-- TEMPERATURE TRAVELED CONTAINER -->
+                            <Border Style="{StaticResource StatTile}" Grid.Row="1" Grid.Column="0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="67 °F" Grid.Row="0" FontSize="24" FontAttributes="Bold"
+                         TextColor="{StaticResource Teal600}" HorizontalOptions="Center"/>
+                                    <Label Text="temperature" Grid.Row="1" FontSize="12" TextColor="{StaticResource Muted}"
+                         HorizontalOptions="Center"/>
+                                </Grid>
+                            </Border>
+
+                            <!-- BATTERY STATUS CONTAINER -->
+                            <Border Style="{StaticResource StatTile}" Grid.Row="1" Grid.Column="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Charging" Grid.Row="0" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource Teal600}" HorizontalOptions="Center"/>
+                                    <Label Text="battery status" Grid.Row="1" FontSize="12" TextColor="{StaticResource Muted}" HorizontalOptions="Center"/>
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- CARD/CONTAINER EXAMPLE -->
+                <Border Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout>
+                        <Label Text="Quick Actions" Style="{StaticResource CardTitle}" />
+                        <Label Text="Access frequently used features quickly from the home screen."
+                   TextColor="{StaticResource Muted}" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
