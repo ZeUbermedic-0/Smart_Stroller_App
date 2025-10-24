@@ -11,6 +11,7 @@
         <Color x:Key="CardStroke">#1A000000</Color>
         <Color x:Key="Muted">#718096</Color>
         <Color x:Key="BackWash">#F8F9FA</Color>
+        <Color x:Key="Gray200">#FFEEEEEE</Color>
 
         <!-- Card (use Border, not Frame) -->
         <Style x:Key="CardBorder" TargetType="Border">

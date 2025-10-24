@@ -41,9 +41,11 @@
             
             <!-- LAYOUT CONTROL/CONTAINER -->
             <VerticalStackLayout Spacing="16">
+                
 
                 <!-- CONTAINER/PANEL -->
                 <Border Style="{StaticResource CardBorder}">
+                    
              
                     <!-- SECTION HEADER "CONTAINER" -->
                     <VerticalStackLayout>
@@ -67,6 +69,7 @@
 
                             <!-- MILES TRAVELED CONTAINER -->
                             <Border Style="{StaticResource StatTile}" Grid.Row="0" Grid.Column="0">
+
                                 
                                 <Grid>
                                 
@@ -83,15 +86,38 @@
 
                             <!-- BATTERY PERCENT CONTAINER -->
                             <Border Style="{StaticResource StatTile}" Grid.Row="0" Grid.Column="1">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Label x:Name="BatteryValue" Text="--%" Grid.Row="0" FontSize="24" FontAttributes="Bold"
-                         TextColor="{StaticResource Teal600}" HorizontalOptions="Center"/>
-                                    <Label Text="battery" Grid.Row="1" FontSize="12" TextColor="{StaticResource Muted}"
-                         HorizontalOptions="Center"/>
+                                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="4">
+                                    <Label x:Name="BatteryValue" 
+                                           Text="--%" 
+                                           Grid.Row="0" 
+                                           FontSize="24" 
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource Teal600}" 
+                                           HorizontalOptions="Center"/>
+                                    
+                                    
+                                    
+                                    <!-- Battery Progress Bar Container -->
+                                    <Border Grid.Row="1"
+                                            HeightRequest="8"
+                                            Margin="4,0"
+                                            BackgroundColor="{StaticResource Gray200}">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="4"/>
+                                        </Border.StrokeShape>
+                                        
+                                        <!-- Actual Progress Bar -->
+                                        <Rectangle x:Name="BatteryBar"
+                                                  Fill="{StaticResource Teal600}"
+                                                  HorizontalOptions="Start"
+                                                  WidthRequest="0"/>
+                                    </Border>
+                                    
+                                    <Label Text="battery" 
+                                           Grid.Row="2" 
+                                           FontSize="12" 
+                                           TextColor="{StaticResource Muted}"
+                                           HorizontalOptions="Center"/>
                                 </Grid>
                             </Border>
 
