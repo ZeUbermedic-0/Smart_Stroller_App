@@ -10,7 +10,8 @@ public partial class BrakePage : ContentPage
 
     public BrakePage()
     {
-        InitializeComponent();
+    
+        InitializeComponent(); // Initialize UI components
     }
 
     protected override void OnAppearing()
@@ -18,8 +19,8 @@ public partial class BrakePage : ContentPage
         base.OnAppearing();
 
         _timer = Dispatcher.CreateTimer();
-        _timer.Interval = TimeSpan.FromSeconds(1);
-        _timer.Tick += async (_, __) => await UpdateBrake();
+        _timer.Interval = TimeSpan.FromSeconds(1); 
+        _timer.Tick += async (_, __) => await UpdateBrake(); 
         _timer.Start();
     }
 
@@ -30,18 +31,18 @@ public partial class BrakePage : ContentPage
         base.OnDisappearing();
     }
 
-    private async Task UpdateBrake()
+    private async Task UpdateBrake() // fetch and update brake status
     {
         try
         {
-            var dto = await ApiClient.Http.GetFromJsonAsync<BrakeDto>("/api/v1/brake");
-            if (dto is null) return;
+            var dto = await ApiClient.Http.GetFromJsonAsync<BrakeDto>("/api/v1/brake");  
+            //if (dto is null) return; 
 
-            bool locked = dto.Locked;
+            bool locked = dto.Locked;   // get brake status
 
             // chip + panel
-            BrakeStatus.Text = locked ? "LOCKED" : "UNLOCKED";
-            BrakePanelText.Text = BrakeStatus.Text;
+            BrakeStatus.Text = locked ? "LOCKED" : "UNLOCKED"; // update text
+            BrakePanelText.Text = BrakeStatus.Text;   // sync panel text
 
             BrakeChip.BackgroundColor = locked ? Color.FromArgb("#FEE2E2") : Color.FromArgb("#DCFCE7");
             BrakeStatus.TextColor = locked ? Colors.DarkRed : Colors.DarkGreen;
@@ -49,13 +50,13 @@ public partial class BrakePage : ContentPage
         catch
         {
             // optional: show offline state
-            BrakeStatus.Text = "UNKNOWN";
-            BrakeChip.BackgroundColor = Color.FromArgb("#FFF3CD");
-            BrakeStatus.TextColor = Colors.DarkGoldenrod;
+            //BrakeStatus.Text = "UNKNOWN"; 
+            //BrakeChip.BackgroundColor = Color.FromArgb("#FFF3CD");
+            //BrakeStatus.TextColor = Colors.DarkGoldenrod;
         }
     }
 
-    private async void OnToggleBrakeClicked(object? sender, EventArgs e)
+    private async void OnToggleBrakeClicked(object? sender, EventArgs e) // event handler for button click
     {
         try
         {

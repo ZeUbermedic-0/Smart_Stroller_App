@@ -16,7 +16,7 @@ public partial class ToFPage : ContentPage
 
     public ToFPage()
     {
-        InitializeComponent();
+        InitializeComponent(); // Initialize UI components
     }
 
     protected override void OnAppearing()

@@ -1,31 +1,31 @@
 using Microsoft.Maui.Dispatching;
 
-namespace Smart_Stroller_App.Views;
+namespace Smart_Stroller_App.Views; //namespace for views
 
-public partial class HomePage : ContentPage
+public partial class HomePage : ContentPage //defines behavior for HomePage.xaml
 {
-    private IDispatcherTimer? _timer;
-    private double _batteryLevel = 0;
+    private IDispatcherTimer? _timer;    //timer for periodic updates
+    private double _batteryLevel = 0;    //initial battery level
 
-    public HomePage()
+    public HomePage() //constructor
     {
-        InitializeComponent();
+        InitializeComponent(); // Initialize UI components
     }
 
-    protected override void OnAppearing()
+    protected override void OnAppearing()  //customize behavior as page appears.
     {
         base.OnAppearing();
-        _timer = Dispatcher.CreateTimer();
+        _timer = Dispatcher.CreateTimer();  //provides a timer 
         _timer.Interval = TimeSpan.FromSeconds(1);
         _timer.Tick += UpdateBattery;
         _timer.Start();
     }
 
-    protected override void OnDisappearing()
+    protected override void OnDisappearing()  //customize behavior as page disappears.
     {
         _timer?.Stop();
         _timer = null;
-        base.OnDisappearing();
+        base.OnDisappearing(); // Stop when page(base) hidden
     }
 
     private void UpdateBattery(object? sender, EventArgs e)
@@ -37,10 +37,9 @@ public partial class HomePage : ContentPage
         {
             // Update percentage text
             BatteryValue.Text = $"{(int)_batteryLevel}%";
-            
-            // Update visual bar width using the same pattern as ToFPage
-            var parentWidth = this.Width - 40; // 20 padding left/right on ScrollView
-            if (parentWidth <= 0) parentWidth = 200; // fallback width
+             
+            var parentWidth = this.Width - 40;       // 20 padding left/right on ScrollView
+            if (parentWidth <= 0) parentWidth = 200; // Default width if not yet measured
             var ratio = _batteryLevel / 100.0;
             BatteryBar.WidthRequest = Math.Max(4, parentWidth * ratio);
             
@@ -49,10 +48,10 @@ public partial class HomePage : ContentPage
         });
     }
 
-    private void UpdateBatteryColor(int level)
+    private void UpdateBatteryColor(int level) //changes color based on battery level
     {
-        Color newColor;
-        if (level < 20)
+        Color newColor;  // Variable to hold the new color
+        if (level < 20)  
         {
             newColor = Colors.Red;
         }

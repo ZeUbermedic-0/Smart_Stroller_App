@@ -6,13 +6,13 @@
   Shell.TabBarBackgroundColor="White"
   Shell.TabBarTitleColor="{StaticResource Teal600}"
   Shell.TabBarForegroundColor="{StaticResource Teal600}"
-  Shell.TabBarUnselectedColor="#9AA1A9"
+  Shell.TabBarUnselectedColor="Black"
   Shell.NavBarIsVisible="False">
 
     <TabBar>
-        <ShellContent Title="Home"  Icon="home.png"  ContentTemplate="{DataTemplate views:HomePage}" />
-        <ShellContent Title="Brake" Icon="brake.png" ContentTemplate="{DataTemplate views:BrakePage}" />
-        <ShellContent Title="ToF"   Icon="tof.png"   ContentTemplate="{DataTemplate views:ToFPage}" />
-        <ShellContent Title="IMU"   Icon="imu.png"   ContentTemplate="{DataTemplate views:IMUPage}" />
+        <ShellContent Title="Hub"  Icon="home2.png"  ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Title="Brake Control" Icon="absbrake.png"  ContentTemplate="{DataTemplate views:BrakePage}" />
+        <ShellContent Title="Position"   Icon="radar1.png"  ContentTemplate="{DataTemplate views:ToFPage}" />
+        <ShellContent Title="Incline"   Icon="angleimu.png"  ContentTemplate="{DataTemplate views:IMUPage}" />
     </TabBar>
 </Shell>
