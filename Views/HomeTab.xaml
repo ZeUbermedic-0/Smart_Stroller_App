@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Smart_Stroller_App.Views.HomePage"
+    x:Class="Smart_Stroller_App.Views.HomeTab"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Home"
+    Title="Hub Tab"
     BackgroundColor="{StaticResource BackWash}">
     <!--  CREATES GRID LAYOUT  -->
     <Grid RowDefinitions="Auto,*">
@@ -24,12 +24,9 @@
                 <Label
                     FontAttributes="Bold"
                     FontSize="28"
-                    Text="SmartStroller"
+                    Text="StrollMate Hub "
                     TextColor="White" />
-                <Label
-                    FontSize="14"
-                    Text="Connected and Safe"
-                    TextColor="#EEFFFFFF" />
+                
             </VerticalStackLayout>
 
             <!--  RECTANGLE SPACER  -->
@@ -44,8 +41,7 @@
             </Border>
         </Grid>
 
-
-        <!--  Content  -->
+        <!--  CONTENT  -->
         <ScrollView Grid.Row="1" Padding="20">
 
             <!--  LAYOUT CONTROL/CONTAINER  -->
@@ -78,7 +74,6 @@
                             <Label Text="Connected to SmartStroller" TextColor="{StaticResource Ink900}" />
                         </HorizontalStackLayout>
 
-
                         <!--  GRID CONTAINER  -->
                         <Grid
                             Margin="0,12,0,0"
@@ -86,16 +81,12 @@
                             ColumnSpacing="15"
                             RowDefinitions="Auto,Auto"
                             RowSpacing="15">
-
                             <!--  MILES TRAVELED CONTAINER  -->
                             <Border
                                 Grid.Row="0"
                                 Grid.Column="0"
                                 Style="{StaticResource StatTile}">
-
-
                                 <Grid>
-
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -112,7 +103,7 @@
                                         Grid.Row="1"
                                         FontSize="12"
                                         HorizontalOptions="Center"
-                                        Text="mi traveled"
+                                        Text="Miles Traversed"
                                         TextColor="{StaticResource Muted}" />
 
                                 </Grid>
@@ -135,7 +126,7 @@
 
 
 
-                                    <!--  Battery Progress Bar Container  -->
+                                    <!--  BATTERY PROGRESS BAR CONTAINER  -->
                                     <Border
                                         Grid.Row="1"
                                         Margin="4,0"
@@ -145,7 +136,7 @@
                                             <RoundRectangle CornerRadius="4" />
                                         </Border.StrokeShape>
 
-                                        <!--  Actual Progress Bar  -->
+                                        <!--  ACTUAL PROGRESS BAR  -->
                                         <Rectangle
                                             x:Name="BatteryBar"
                                             Fill="{StaticResource Teal600}"
@@ -183,7 +174,7 @@
                                         Grid.Row="1"
                                         FontSize="12"
                                         HorizontalOptions="Center"
-                                        Text="temperature"
+                                        Text="Temperature"
                                         TextColor="{StaticResource Muted}" />
                                 </Grid>
                             </Border>
@@ -209,7 +200,7 @@
                                         Grid.Row="1"
                                         FontSize="12"
                                         HorizontalOptions="Center"
-                                        Text="Battery status"
+                                        Text="Battery Status"
                                         TextColor="{StaticResource Muted}" />
                                 </Grid>
                             </Border>
@@ -218,14 +209,75 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!--  CARD/CONTAINER EXAMPLE  -->
+                <!--  CARD/CONTAINER  
                 <Border Style="{StaticResource CardBorder}">
                     <VerticalStackLayout>
-                        <Label Style="{StaticResource CardTitle}" Text="Quick Actions" />
-                        <Label Text="Access frequently used features quickly from the home screen." TextColor="{StaticResource Muted}" />
+                        <Label Style="{StaticResource CardTitle}" Text="Manually Control Brake locks" />
+                        <Label Text="View status of brakes and control below." TextColor="{StaticResource Muted}" />
                     </VerticalStackLayout>
                 </Border>
+                -->
+                
+                <!--  BRACK LOCK CARD  -->
+                <!--  INNER CONTAINER  -->
+                <VerticalStackLayout Spacing="12">
+                    <Label Style="{StaticResource CardTitle}" Text="Brake Lock Control" />
+                    <!--  STATUS CARD  -->
+                    <Border
+                        x:Name="BrakeChip"
+                        Padding="10,6"
+                        BackgroundColor="#F1F5F9">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14" />
 
+                        </Border.StrokeShape>
+                        <!--  TEXT  -->
+                        <Label
+                            x:Name="BrakeStatus"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="..."
+                            TextColor="{StaticResource Ink900}" />
+                    </Border>
+                    <!--  BIG SENSOR-DISPLAY  -->
+                    <Border Padding="18">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Offset="0" Color="#F0F9FB" />
+                                <GradientStop Offset="1" Color="#E6F7F3" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.StrokeShape>
+
+                            <RoundRectangle CornerRadius="16" />
+
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout HorizontalOptions="Center" Spacing="4">
+                            <Label
+                                x:Name="BrakePanelText"
+                                FontAttributes="Bold"
+                                FontSize="32"
+                                Text="LOCKED"
+                                TextColor="{StaticResource Teal600}" />
+                            <Label
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                Text="Current Status"
+                                TextColor="{StaticResource Muted}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!--BRAKE LOCK BUTTON-->  
+                <Button
+                    x:Name="ToggleBrakeBtn"
+                    BackgroundColor="{StaticResource Teal600}"
+                    Clicked="OnToggleBrakeClicked"
+                    CornerRadius="12"
+                    Text="Toggle Brake"
+                    TextColor="White"/>
+                
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

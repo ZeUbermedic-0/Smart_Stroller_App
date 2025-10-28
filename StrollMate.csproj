@@ -43,18 +43,24 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <DebugSymbols>False</DebugSymbols>
+	  <AndroidKeyStore>False</AndroidKeyStore>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
+	  <AndroidKeyStore>False</AndroidKeyStore>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg"/>
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#00637C" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\iconstroller.png" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\babycarriage.svg" Resize="True" BaseSize="300,185" />
 		
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -64,19 +70,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />
+	  <Compile Remove="Views\BrakePage.xaml.cs" />
+	  <Compile Remove="Views\IMUPage.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Views\IMUPage.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\AppIcon\stroller.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.120" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.10" />
+		<PackageReference Include="Plugin.BLE" Version="3.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="HomePage.xaml.cs">
 	    <DependentUpon>HomePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\BrakePage.xaml.cs">
-	    <DependentUpon>BrakePage.xaml</DependentUpon>
+	  <Compile Update="Views\HomeTab.xaml.cs">
+	    <DependentUpon>HomeTab.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\IMUPage.xaml.cs">
-	    <DependentUpon>IMUPage.xaml</DependentUpon>
+	  <Compile Update="Views\SettingsTab.xaml.cs">
+	    <DependentUpon>SettingsTab.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\ToFPage.xaml.cs">
 	    <DependentUpon>ToFPage.xaml</DependentUpon>
@@ -91,6 +111,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\IMUPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsTab.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ToFPage.xaml">

@@ -1,10 +1,10 @@
 ﻿<Application
+    x:Class="Smart_Stroller_App.App"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Smart_Stroller_App.App">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
 
-        <!-- Colors -->
+        <!--  Colors  -->
         <Color x:Key="Teal600">#00637C</Color>
         <Color x:Key="Teal700">#007C57</Color>
         <Color x:Key="Ink900">#333333</Color>
@@ -13,7 +13,7 @@
         <Color x:Key="BackWash">#F8F9FA</Color>
         <Color x:Key="Gray200">#FFEEEEEE</Color>
 
-        <!-- Card (use Border, not Frame) -->
+        <!--  Card (use Border, not Frame)  -->
         <Style x:Key="CardBorder" TargetType="Border">
             <Setter Property="Stroke" Value="{StaticResource CardStroke}" />
             <Setter Property="Background" Value="White" />
@@ -21,7 +21,10 @@
             <Setter Property="Margin" Value="0,0,0,16" />
             <Setter Property="Shadow">
                 <Setter.Value>
-                    <Shadow Brush="#33000000" Radius="12" Opacity="0.4" />
+                    <Shadow
+                        Brush="#33000000"
+                        Opacity="0.4"
+                        Radius="12" />
                 </Setter.Value>
             </Setter>
             <Setter Property="StrokeShape">
@@ -31,21 +34,21 @@
             </Setter>
         </Style>
 
-        <!-- Titles -->
+        <!--  Titles  -->
         <Style x:Key="CardTitle" TargetType="Label">
             <Setter Property="FontSize" Value="18" />
             <Setter Property="TextColor" Value="{StaticResource Teal600}" />
             <Setter Property="FontAttributes" Value="Bold" />
         </Style>
 
-        <!-- Stat tile (use Border) -->
+        <!--  Stat tile (use Border)  -->
         <Style x:Key="StatTile" TargetType="Border">
             <Setter Property="Padding" Value="12" />
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#E6F7F3" Offset="0"/>
-                        <GradientStop Color="#F0F9FB" Offset="1"/>
+                        <GradientStop Offset="0" Color="#E6F7F3" />
+                        <GradientStop Offset="1" Color="#F0F9FB" />
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>

@@ -1,18 +1,28 @@
 <Shell
-  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:views="clr-namespace:Smart_Stroller_App.Views"
-  x:Class="Smart_Stroller_App.AppShell"
-  Shell.TabBarBackgroundColor="White"
-  Shell.TabBarTitleColor="{StaticResource Teal600}"
-  Shell.TabBarForegroundColor="{StaticResource Teal600}"
-  Shell.TabBarUnselectedColor="Black"
-  Shell.NavBarIsVisible="False">
+    x:Class="Smart_Stroller_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Smart_Stroller_App.Views"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="{StaticResource Teal600}"
+    Shell.TabBarTitleColor="{StaticResource Teal600}"
+    Shell.TabBarUnselectedColor="Black">
 
     <TabBar>
-        <ShellContent Title="Hub"  Icon="home2.png"  ContentTemplate="{DataTemplate views:HomePage}" />
-        <ShellContent Title="Brake Control" Icon="absbrake.png"  ContentTemplate="{DataTemplate views:BrakePage}" />
-        <ShellContent Title="Position"   Icon="radar1.png"  ContentTemplate="{DataTemplate views:ToFPage}" />
-        <ShellContent Title="Incline"   Icon="angleimu.png"  ContentTemplate="{DataTemplate views:IMUPage}" />
+        <ShellContent
+            Title="Hub"
+            ContentTemplate="{DataTemplate views:HomeTab}"
+            Icon="homeadvisor.png" />
+
+        <ShellContent
+            Title="Position"
+            ContentTemplate="{DataTemplate views:PositionTab}"
+            Icon="radar1.png" />
+
+        <ShellContent
+            Title="Settings"
+            ContentTemplate="{DataTemplate views:SettingsTab}"
+            Icon="settings.png" />
     </TabBar>
 </Shell>
