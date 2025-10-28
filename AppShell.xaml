@@ -7,7 +7,7 @@
     Shell.TabBarBackgroundColor="White"
     Shell.TabBarForegroundColor="{StaticResource Teal600}"
     Shell.TabBarTitleColor="{StaticResource Teal600}"
-    Shell.TabBarUnselectedColor="Black">
+    Shell.TabBarUnselectedColor="Gray">
 
     <TabBar>
         <ShellContent
