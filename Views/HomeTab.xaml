@@ -26,7 +26,7 @@
                     FontSize="28"
                     Text="StrollMate Hub "
                     TextColor="White" />
-                
+
             </VerticalStackLayout>
 
             <!--  RECTANGLE SPACER  -->
@@ -209,7 +209,7 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!--  CARD/CONTAINER  
+                <!--  CARD/CONTAINER
                 <Border Style="{StaticResource CardBorder}">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource CardTitle}" Text="Manually Control Brake locks" />
@@ -217,7 +217,7 @@
                     </VerticalStackLayout>
                 </Border>
                 -->
-                
+
                 <!--  BRACK LOCK CARD  -->
                 <!--  INNER CONTAINER  -->
                 <VerticalStackLayout Spacing="12">
@@ -269,15 +269,15 @@
                     </Border>
                 </VerticalStackLayout>
 
-                <!--BRAKE LOCK BUTTON-->  
+                <!--  BRAKE LOCK BUTTON  -->
                 <Button
                     x:Name="ToggleBrakeBtn"
                     BackgroundColor="{StaticResource Teal600}"
                     Clicked="OnToggleBrakeClicked"
                     CornerRadius="12"
                     Text="Toggle Brake"
-                    TextColor="White"/>
-                
+                    TextColor="White" />
+
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

@@ -4,51 +4,66 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Settings"
-    BackgroundColor="#03936E">
+    BackgroundColor="{StaticResource Teal700}">
 
-    <VerticalStackLayout>
+    <!--  OUTER GRID: HEADER + CONTENT  -->
+    <Grid RowDefinitions="Auto,*">
+
         <!--  GRADIENT HEADER  -->
-        <Grid RowDefinitions="Auto,*">
-
-            <Grid Grid.Row="0" Padding="20,32">
-                <Grid.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Offset="0" Color="{StaticResource Teal600}" />
-                        <GradientStop Offset="1" Color="{StaticResource Teal700}" />
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="28"
-                    Text="Settings"
-                    TextColor="White" />
-            </Grid>
-
-            <!--  SCROLLABLE CONTENT  -->
-            <ScrollView Grid.Row="1" Padding="20">
-                <HorizontalStackLayout
-                    Margin="0,8,0,0"
-                    Spacing="18"
-                    VerticalOptions="Center">
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="26"
-                        Text="Turn on Bluetooth"
-                        TextColor="Black" />
-
-                    <Switch
-                        x:Name="switchAccept"
-                        IsToggled="False"
-                        OnColor="Green"
-                        ThumbColor="White"
-                        Toggled="switchAccept_Toggled" />
-                </HorizontalStackLayout>
-
-
-
-            </ScrollView>
+        <Grid Grid.Row="0" Padding="20,32">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="{StaticResource Teal600}" />
+                    <GradientStop Offset="1" Color="{StaticResource Teal700}" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label
+                FontAttributes="Bold"
+                FontSize="28"
+                Text="Settings"
+                TextColor="White" />
         </Grid>
 
+        <ScrollView Padding="20">
+            <VerticalStackLayout Spacing="22">
+                <Label Style="{StaticResource CardTitle}" Text="Bluetooth" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Status:"
+                           FontSize="16"/>
+                    <Label FontAttributes="Bold" Text="{Binding Status}" FontSize="16" />
+                </HorizontalStackLayout>
 
-    </VerticalStackLayout>
+                <Button
+                    BackgroundColor="{StaticResource Teal600}"
+                    Clicked="OnConnectClicked"
+                    CornerRadius="12"
+                    Text="Connect to SmartStroller"
+                    FontSize="20"
+                    TextColor="White" />
+                <Grid Padding="4,8" ColumnDefinitions="Auto,*" />
+
+                <Border Style="{StaticResource CardBorder}">
+                    <VerticalStackLayout>
+                        <Label
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource CardTitle}"
+                            Text="Demo Mode" />
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+                            <Label
+                                Grid.Column="0"
+                                FontSize="20"
+                                Text="Toggle "
+                                TextColor="Black"
+                                VerticalOptions="Center" />
+                            <Switch
+                                Grid.Column="2"
+                                HorizontalOptions="Center"
+                                IsToggled="{Binding DemoMode}" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
