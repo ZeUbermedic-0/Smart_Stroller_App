@@ -19,7 +19,7 @@
             </Grid.Background>
             <Label
                 FontAttributes="Bold"
-                FontSize="28"
+                FontSize="30"
                 Text="Settings"
                 TextColor="White" />
         </Grid>
@@ -28,33 +28,40 @@
             <VerticalStackLayout Spacing="22">
                 <Label Style="{StaticResource CardTitle}" Text="Bluetooth" />
                 <HorizontalStackLayout Spacing="10">
-                    <Label Text="Status:"
-                           FontSize="16"/>
-                    <Label FontAttributes="Bold" Text="{Binding Status}" FontSize="16" />
+                    <Label FontSize="20" Text="Status:" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="{Binding Status}" />
                 </HorizontalStackLayout>
 
-                <Button
-                    BackgroundColor="{StaticResource Teal600}"
-                    Clicked="OnConnectClicked"
-                    CornerRadius="12"
-                    Text="Connect to SmartStroller"
-                    FontSize="20"
-                    TextColor="White" />
-                <Grid Padding="4,8" ColumnDefinitions="Auto,*" />
 
                 <Border Style="{StaticResource CardBorder}">
                     <VerticalStackLayout>
+                        <Button
+                            BackgroundColor="{StaticResource Teal600}"
+                            Clicked="OnConnectClicked"
+                            CornerRadius="12"
+                            FontSize="20"
+                            Text="Connect to SmartStroller"
+                            TextColor="White" />
+                        <Grid Padding="4,8" ColumnDefinitions="Auto,*" />
                         <Label
                             FontSize="26"
                             HorizontalOptions="Center"
                             Style="{StaticResource CardTitle}"
                             Text="Demo Mode" />
+                        <Label
+                            FontSize="18"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource CardTitle}"
+                            Text="Press for Demo" />
                         <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
                             <Label
                                 Grid.Column="0"
                                 FontSize="20"
                                 Text="Toggle "
-                                TextColor="Black"
+                                TextColor="#00637C"
                                 VerticalOptions="Center" />
                             <Switch
                                 Grid.Column="2"

@@ -18,7 +18,7 @@
             </Grid.Background>
             <Label
                 FontAttributes="Bold"
-                FontSize="28"
+                FontSize="30"
                 Text="Stroller Position"
                 TextColor="White" />
         </Grid>

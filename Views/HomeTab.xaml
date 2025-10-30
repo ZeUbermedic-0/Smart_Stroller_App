@@ -23,7 +23,7 @@
             <VerticalStackLayout>
                 <Label
                     FontAttributes="Bold"
-                    FontSize="28"
+                    FontSize="30"
                     Text="StrollMate Hub "
                     TextColor="White" />
 
